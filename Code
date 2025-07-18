@@ -14,32 +14,32 @@ def load_from_csv(filename="grades.csv"):
             for row in reader:
                 name, grade = row[0], float(row[1])
                 students.append((name, grade))
-        print("✅ Data loaded successfully.")
+        print(" Data loaded successfully.")
     except FileNotFoundError:
-        print("⚠️ File not found. Starting with empty dataset.")
+        print(" File not found. Starting with empty dataset.")
 
 # Save to CSV
 def save_to_csv(filename="grades.csv"):
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(students)
-    print("💾 Data saved to CSV.")
+    print(" Data saved to CSV.")
 
 # Add new student
 def add_student():
     name = input("Enter student name: ")
     grade = float(input("Enter student grade: "))
     students.append((name, grade))
-    print(f"🟢 {name} added with grade {grade}.")
+    print(f" {name} added with grade {grade}.")
 
 # Show stats
 def show_stats():
     if not students:
-        print("⚠️ No data available.")
+        print(" No data available.")
         return
     grades = [g for _, g in students]
     avg = sum(grades) / len(grades)
-    print(f"\n📊 Grade Analysis:")
+    print(f"\n Grade Analysis:")
     print(f"Average Grade: {round(avg, 2)}")
     print(f"Highest Grade: {max(grades)}")
     print(f"Lowest Grade: {min(grades)}")
@@ -47,18 +47,18 @@ def show_stats():
 # Show top performers
 def show_top_performers():
     if not students:
-        print("⚠️ No data available.")
+        print(" No data available.")
         return
     n = int(input("How many top performers to display? "))
     sorted_students = sorted(students, key=lambda x: x[1], reverse=True)
-    print(f"\n🏆 Top {n} Performers:")
+    print(f"\n Top {n} Performers:")
     for i, (name, grade) in enumerate(sorted_students[:n], start=1):
         print(f"{i}. {name} - {grade}")
 
 # Plot bar chart
 def plot_grades():
     if not students:
-        print("⚠️ No data available.")
+        print(" No data available.")
         return
     names = [name for name, _ in students]
     grades = [grade for _, grade in students]
@@ -66,7 +66,7 @@ def plot_grades():
     plt.bar(names, grades, color='skyblue')
     plt.xlabel("Students")
     plt.ylabel("Grades")
-    plt.title("📊 Student Grade Distribution")
+    plt.title(" Student Grade Distribution")
     plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()
@@ -75,7 +75,7 @@ def plot_grades():
 def main_menu():
     load_from_csv()  # Load data on start
     while True:
-        print("\n===== 🎓 Student Grades Analyzer =====")
+        print("\n=====  Student Grades Analyzer =====")
         print("1. Add Student")
         print("2. Show Grade Stats")
         print("3. Show Top Performers")
@@ -100,10 +100,10 @@ def main_menu():
             load_from_csv()
         elif choice == '0':
             save_to_csv()
-            print("👋 Goodbye!")
+            print(" Goodbye!")
             break
         else:
-            print("❌ Invalid option. Try again.")
+            print(" Invalid option. Try again.")
 
 # Run program
 main_menu()
