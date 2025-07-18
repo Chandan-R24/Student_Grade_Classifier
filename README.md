@@ -6,4 +6,4 @@ add_student function is used to add new student marks into the csv file.
 Similarlly, fuction is written to calculate the average,Highest and lowest grade in the class.
 Function is defined to calculate the n number of toppers in the class and to visualize the performance of individual in the given data.
 The main function describes the detail options of the choices to conduct the specific operation.
-The input is taken from the user to conduct the required operation
+The input is taken from the user to conduct the required operation.
